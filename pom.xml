@@ -18,12 +18,12 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <finalName>${project.name}-uberJar}</finalName>
+                    <finalName>${project.name}-uberJar</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <attach>false</attach>
                     <archive>
                         <manifest>
-                            <mainClass>co.matt.Mainr</mainClass>
+                            <mainClass>co.matt.Main</mainClass>
                         </manifest>
                         <manifestSections>
                             <manifestSection>
@@ -72,10 +72,10 @@
     <version>2.19</version>
 </dependency>
 	<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
-		</dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 </dependencies>
 </project>

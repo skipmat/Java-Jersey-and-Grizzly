@@ -13,8 +13,8 @@ import org.junit.Test;
 import co.matt.DeviceListFactory;
 import co.matt.DeviceListInterface;
 import co.matt.DeviceListLoader;
-import co.matt.domain.Attributes;
-import co.matt.domain.Device;
+import co.matt.dao.Attributes;
+import co.matt.dao.Device;
 
 public class DeviceValidationTest {
 	

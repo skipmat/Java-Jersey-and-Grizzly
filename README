@@ -1,0 +1,11 @@
+Simple Java project using Jersey and Grizzly to support RESTful endpoints, executed in Docker.
+---------------------------------------------------------------------------------------------
+
+Build and generate artifact -> mvn clean install
+
+Build Docker image based on the DockerFile -> docker build -t mobile-device dockerfiles/production/ 
+
+Run the docker image in a container -> docker run --rm -d -t --name mobile-device -p 9000:9000 mobile-device
+
+Check the application log -> docker logs -f mobile-device
+

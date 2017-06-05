@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import co.matt.domain.Attributes;
-import co.matt.domain.Device;
+import co.matt.dao.Attributes;
+import co.matt.dao.Device;
 
 public class DeviceListTest {
 	

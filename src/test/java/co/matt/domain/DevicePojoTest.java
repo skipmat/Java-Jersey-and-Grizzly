@@ -1,7 +1,6 @@
 package co.matt.domain;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -10,8 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import co.matt.domain.Attributes;
-import co.matt.domain.Device;
+import co.matt.dao.Attributes;
+import co.matt.dao.Device;
 
 public class DevicePojoTest {
 	

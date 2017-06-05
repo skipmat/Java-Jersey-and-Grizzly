@@ -2,7 +2,7 @@ package co.matt;
 
 import java.util.List;
 
-import co.matt.domain.Device;
+import co.matt.dao.Device;
 
 public interface DeviceListInterface {
 	

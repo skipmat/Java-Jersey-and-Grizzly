@@ -3,8 +3,8 @@ package co.matt;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.matt.domain.Attributes;
-import co.matt.domain.Device;
+import co.matt.dao.Attributes;
+import co.matt.dao.Device;
 
 public class DeviceList implements DeviceListInterface{
 	

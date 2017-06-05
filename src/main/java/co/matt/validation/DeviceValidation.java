@@ -8,9 +8,9 @@ import java.util.Set;
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import co.matt.domain.Attributes;
-import co.matt.domain.Device;
-import co.matt.domain.FormFactor;
+import co.matt.dao.Attributes;
+import co.matt.dao.Device;
+import co.matt.dao.FormFactor;
 
 public class DeviceValidation {
 	

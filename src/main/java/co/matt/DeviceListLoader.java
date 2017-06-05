@@ -7,7 +7,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import co.matt.domain.Device;
+import co.matt.dao.Device;
 import co.matt.validation.DeviceValidation;
 
 public class DeviceListLoader {

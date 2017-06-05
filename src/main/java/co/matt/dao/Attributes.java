@@ -1,4 +1,4 @@
-package co.matt.domain;
+package co.matt.dao;
 
 public class Attributes {
 	

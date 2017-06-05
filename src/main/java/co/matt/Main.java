@@ -10,7 +10,7 @@ public class Main extends ResourceConfig{
 	
 	private void start() {
 		this.packages("co.matt.controllers");
-		GrizzlyHttpServerFactory.createHttpServer(URI.create("http://localhost:9000"),this, true);
+		GrizzlyHttpServerFactory.createHttpServer(URI.create("http://0.0.0.0:9000"),this, true);
 		DeviceListLoader loader = new DeviceListLoader();
 		loader.readInFile();	
 	}
