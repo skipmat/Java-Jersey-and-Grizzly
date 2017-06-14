@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 
+<div class="container-fluid">
 <div ng-app="myApp" ng-controller="myCtrl">
 
-<p>Click the button to get all devices:</p>
-<button ng-click="myFunc()">GetAllDevices</button>
+<h1>WDS Mobile Device Challenge</h1>
 
-<ul>
-  <li ng-repeat="x in allDevices">
-    {{ x.brand + ', ' + x.model + ', ' + x.formFactor + ', ' + x.fullName }}
-  </li>
-</ul>
-
+<div class="row">
+	<div class="well">
+	    <button ng-click="myFunc1()" class="btn btn-primary">Get All Devices</button>
+		<ul>
+	  	<li ng-repeat="x in allDevices">
+	    	{{ x.brand + ', ' + x.model + ', ' + x.formFactor + ', ' + x.fullName }}
+	  	</li>
+	    </ul>  
+    </div>
+	<div class="well">
+	    <p>Enter a new device:</p>
+		<input type="text" ng-model="brand"><br>
+		<input type="text" ng-model="model"><br>
+		<input type="text" ng-model="formFactor">
+		</br>
+		<button ng-click="myFunc2()">AddDevice</button>
+		<div class="section2" ng-show="myValue">Added Succesfully!</div><div class="section3" ng-show="myValue2">Error</div>    
+    </div>
+</div>
+</div>
 </div>
 
 
@@ -21,30 +38,32 @@
 <script>
 
 var app = angular.module('myApp', []);
-app.controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('myCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
-	$scope.myFunc = function() {
+	$scope.myFunc1 = function() {
 		$http.get("http://localhost:9000/device/getAllDevices")
   		.then(function(response) {
       	$scope.allDevices = response.data;
  		 });
     };
+    $scope.myFunc2 = function() {
+		$http.put("http://localhost:9000/device/addDevice/" + $scope.brand + "/" + $scope.model + "/" + $scope.formFactor)
+		.then(function (response){
+      		$scope.allDevices = response.data;
+      		$scope.myValue = true;
+      		$timeout(function(){
+          		$scope.myValue = false;
+      		 }, 3000);
+      		 
+ 		 }, function errorCallback(response){
+ 		 	$scope.myValue2 = true;
+ 		 	$timeout(function(){
+          		$scope.myValue2 = false;
+      		 }, 3000);
+ 		 });	 
+    };
+
   }]);
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

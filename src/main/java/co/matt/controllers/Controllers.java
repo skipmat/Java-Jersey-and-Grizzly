@@ -13,6 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.lang3.StringUtils;
+
 import co.matt.DeviceListFactory;
 import co.matt.DeviceListInterface;
 import co.matt.dao.Device;
@@ -52,6 +54,9 @@ public class Controllers {
 	@Path("/addDevice/{brand}/{model}/{formfactor}")
 	@PUT
     public Response getDevice(@PathParam("brand") String brand, @PathParam("model") String model, @PathParam("formfactor") String formfactor) {
+		if(brand.equals("undefined") || model.equals("undefined") || formfactor.equals("undefined")){
+			return Response.serverError().build();
+		}
 		functions.addDevice(brand, model, formfactor);  
 		return Response.ok().build();
     }
