@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>Click the button to get all devices:</p>
+<button ng-click="myFunc()">GetAllDevices</button>
+
+<ul>
+  <li ng-repeat="x in allDevices">
+    {{ x.brand + ', ' + x.model + ', ' + x.formFactor + ', ' + x.fullName }}
+  </li>
+</ul>
+
+</div>
+
+
+
+<script>
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+
+	$scope.myFunc = function() {
+		$http.get("http://localhost:9000/device/getAllDevices")
+  		.then(function(response) {
+      	$scope.allDevices = response.data;
+ 		 });
+    };
+  }]);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

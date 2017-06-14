@@ -1,5 +1,7 @@
 package co.matt.controllers;
 
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -24,10 +26,13 @@ public class Controllers {
 		this.functions = new DeviceListFactory().getDeviceListInterface();
 	}
 	
-	@Path("/helloworld")
+	@Path("/home")
     @GET
+    @Produces(MediaType.TEXT_HTML)
     public Response hellowWorld() {
-		return Response.ok("Hello World").build();    
+		URL url = getClass().getResource("../views/homepage.html");
+		File file = new File(url.getPath());
+		return Response.ok(file).build();
     }
 	
 	@Path("/getAllDevices")
